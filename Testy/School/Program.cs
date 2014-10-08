@@ -45,26 +45,25 @@ namespace School
 			//Linia();
 			//EF5.LocalDemo();
 			//Linia();
-			EF5.ChangeTrackingDemo();
-			Linia();
-			EF5.SetValuesDemo();
-			Linia();
-			EF5.ValidationErrorDemo();
-			Linia();
-			EF5.CRUDOperationInConnectedScenarioDemo();
-			Linia();
-			EF5.OptimisticConcurrencyDemo();
-			Linia();
+			//EF5.ChangeTrackingDemo();
+			//Linia();
+			//EF5.SetValuesDemo();
+			//Linia();
+			//EF5.ValidationErrorDemo();
+			//Linia();
+			//EF5.CRUDOperationInConnectedScenarioDemo();
+			//Linia();
+			//EF5.OptimisticConcurrencyDemo();
+			//Linia();
 			
-			//Add and map sp_InsertStudentInfo, sp_UpdateStudent 
-			//and sp_DeleteStudent into EDM to run following demo
+			//Add and map sp_InsertStudentInfo, sp_UpdateStudent and sp_DeleteStudent into EDM to run following demo
 			//EF5.CUDOperationUsingStoredProcedureDemo();
 
-			////AddDemo.AddSingleEntity();
-			////AddDemo.AddEntityGraph();
+			//AddDemo.AddSingleEntity();
+			//AddDemo.AddEntityGraph();
 
-			////UpdateDemo.UpdateSingleEntity();
-			////UpdateDemo.UpdateEntityGraphUsingId();
+			UpdateDemo.UpdateSingleEntity();
+			UpdateDemo.UpdateEntityGraphUsingId();
 
 
 			//Implement IEntityObjectState in Standard & Teacher entity class to run following demo

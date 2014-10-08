@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDemo.cs" />
     <Compile Include="Course.cs">
       <DependentUpon>School.tt</DependentUpon>
     </Compile>
@@ -102,6 +103,7 @@
     <Compile Include="Teacher.cs">
       <DependentUpon>School.tt</DependentUpon>
     </Compile>
+    <Compile Include="UpdateDemo.cs" />
     <Compile Include="View_StudentCourse.cs">
       <DependentUpon>School.tt</DependentUpon>
     </Compile>
