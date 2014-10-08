@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Dokumenty\__Projects\_Git\_CSharp_2013\Testy\School\School.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Dokumenty\_Git\_Csharp_2013\Testy\School\School.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

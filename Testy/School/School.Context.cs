@@ -9,12 +9,11 @@
 
 namespace School
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    using System.Data.Objects;
-    using System.Data.Objects.DataClasses;
-    using System.Linq;
+	using System;
+	using System.Data.Entity;
+	using System.Data.Entity.Infrastructure;
+	using System.Data.Entity.Core.Objects;
+	using System.Linq;
     
     public partial class SchoolDBEntities : DbContext
     {
@@ -34,17 +33,26 @@ namespace School
         public DbSet<StudentAddress> StudentAddresses { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<View_StudentCourse> View_StudentCourse { get; set; }
-    
-        public virtual ObjectResult<GetCoursesByStudentId_Result> GetCoursesByStudentId(Nullable<int> studentId)
-        {
-            var studentIdParameter = studentId.HasValue ?
-                new ObjectParameter("StudentId", studentId) :
-                new ObjectParameter("StudentId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCoursesByStudentId_Result>("GetCoursesByStudentId", studentIdParameter);
-        }
-    
-        public virtual int sp_DeleteStudent(Nullable<int> studentId)
+
+				public virtual ObjectResult<Course> GetCoursesByStudentId(Nullable<int> studentId)
+				{
+					var studentIdParameter = studentId.HasValue ?
+							new ObjectParameter("StudentId", studentId) :
+							new ObjectParameter("StudentId", typeof(int));
+
+					return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Course>("GetCoursesByStudentId", studentIdParameter);
+				}
+
+				public virtual ObjectResult<Course> GetCoursesByStudentId(Nullable<int> studentId, MergeOption mergeOption)
+				{
+					var studentIdParameter = studentId.HasValue ?
+							new ObjectParameter("StudentId", studentId) :
+							new ObjectParameter("StudentId", typeof(int));
+
+					return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Course>("GetCoursesByStudentId", mergeOption, studentIdParameter);
+				}
+				
+				public virtual int sp_DeleteStudent(Nullable<int> studentId)
         {
             var studentIdParameter = studentId.HasValue ?
                 new ObjectParameter("StudentId", studentId) :

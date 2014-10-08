@@ -9,12 +9,12 @@
 
 namespace School
 {
-    using System;
-    
-    public partial class GetCoursesByStudentId_Result
-    {
-        public Nullable<int> courseid { get; set; }
-        public string coursename { get; set; }
-        public Nullable<int> TeacherId { get; set; }
-    }
+	using System;
+
+	public partial class GetCoursesByStudentId_Result
+	{
+		public Nullable<int> courseid { get; set; }
+		public string coursename { get; set; }
+		public Nullable<int> TeacherId { get; set; }
+	}
 }

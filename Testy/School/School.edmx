@@ -58,7 +58,7 @@
           <Property Name="StandardId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\DOKUMENTY\__PROJECTS\_GIT\_CSHARP_2013\TESTY\SCHOOL\SCHOOLDB.MDF.dbo.View_StudentCourse' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'D:\DOKUMENTY\_GIT\_CSHARP_2013\TESTY\SCHOOL\SCHOOLDB.MDF.dbo.View_StudentCourse' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="View_StudentCourse">
           <Key>
             <PropertyRef Name="StudentID" />
