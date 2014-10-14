@@ -33,6 +33,8 @@ namespace School
 			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			//EF5.ReadDataUsingStoredProcedure();
 			//Linia();
+			// nieaktywne
+			//EF5.ReadDataUsingStoredProcedure2();
 			//EF5.RawSQLCommandDemo();
 			//Linia();
 			//EF5.EntitySQLDemo();

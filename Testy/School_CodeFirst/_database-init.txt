@@ -1,0 +1,51 @@
+﻿Database Initialization:
+---------------------------------------------------
+
+We will now see how to initialize a database in a code-first application.
+	The following figure shows a database initialization workflow, based on the parameter passed in the base constructor of context class, which is derived from DbContext:
+
+Entity Framework code-first database initialization
+	As per the above figure, you can pass the following parameters in the base constructor:
+
+
+		---------------------------------------------------
+		No Parameter: If you do not pass the parameter then it creates the database in your local SQLEXPRESS 
+									with a name that matches your {Namespace}.{Context class name}. eg. SchoolDataLayer.Context for following context:
+
+    public class Context: DbContext 
+    {
+        public Context(): base() {}
+    }
+        
+
+		---------------------------------------------------
+		Name: If you pass "Name" parameter then it creates database in the local SQLEXPRESS db server using that name. 
+					For example: the code shown below will create a "SchoolDB-CodeFirst" database
+		public class Context: DbContext 
+    {
+        public Context(): base("SchoolDB-CodeFirst")         {  }
+    }
+
+        
+		---------------------------------------------------
+		ConnectionStringName: If you pass connection string name of app.config or web.config then it will create the database as per a connection string. 
+													For example, the code shown below will create a "SchoolDB-ByConnectionString" database:
+
+    public class Context: DbContext 
+    {
+        public SchoolDBContext() : base("SchoolDBConnectionString")         {        }
+    }
+        
+		App.config:
+		<?xml version="1.0" encoding="utf-8" ?>
+		<configuration>
+			<connectionStrings>
+				<add name="SchoolDBConnectionString" 
+				connectionString="Data Source=.;Initial Catalog=SchoolDB-ByConnectionString;Integrated Security=true" 
+				providerName="System.Data.SqlClient"/>
+			</connectionStrings>
+		</configuration>
+		
+			Above Context class sends a connection string name as a parameter. So it will create new "SchoolDB-ByConnectionString" database 
+		or use existing "SchoolDB-ByConnectionString" database at local SQL Server (because we have mentioned '.' not SQLEXPRESS). 
+		Make sure that you include providerName = "System.Data.SqlClient" in the connection string.

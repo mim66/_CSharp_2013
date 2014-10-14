@@ -362,9 +362,6 @@ FROM [dbo].[View_StudentCourse] AS [View_StudentCourse]</DefiningQuery>
             <End Role="Course" EntitySet="Courses" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <FunctionImport Name="GetCoursesByStudentId" ReturnType="Collection(SchoolDBModel.GetCoursesByStudentId_Result)">
-            <Parameter Name="StudentId" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="sp_DeleteStudent">
             <Parameter Name="StudentId" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -376,6 +373,9 @@ FROM [dbo].[View_StudentCourse] AS [View_StudentCourse]</DefiningQuery>
             <Parameter Name="StudentId" Mode="In" Type="Int32" />
             <Parameter Name="StandardId" Mode="In" Type="Int32" />
             <Parameter Name="StudentName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetCourseByStudenttId" ReturnType="Collection(SchoolDBModel.GetCoursesByStudentId_Result)">
+            <Parameter Name="StudentId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetCoursesByStudentId_Result">
@@ -456,7 +456,10 @@ FROM [dbo].[View_StudentCourse] AS [View_StudentCourse]</DefiningQuery>
               <ScalarProperty Name="StudentID" ColumnName="StudentId" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="GetCoursesByStudentId" FunctionName="SchoolDBModel.Store.GetCoursesByStudentId">
+          <FunctionImportMapping FunctionImportName="sp_DeleteStudent" FunctionName="SchoolDBModel.Store.sp_DeleteStudent" />
+          <FunctionImportMapping FunctionImportName="sp_InsertStudentInfo" FunctionName="SchoolDBModel.Store.sp_InsertStudentInfo" />
+          <FunctionImportMapping FunctionImportName="sp_UpdateStudent" FunctionName="SchoolDBModel.Store.sp_UpdateStudent" />
+          <FunctionImportMapping FunctionImportName="GetCourseByStudenttId" FunctionName="SchoolDBModel.Store.GetCoursesByStudentId">
             <ResultMapping>
               <ComplexTypeMapping TypeName="SchoolDBModel.GetCoursesByStudentId_Result">
                 <ScalarProperty Name="courseid" ColumnName="courseid" />
@@ -465,9 +468,6 @@ FROM [dbo].[View_StudentCourse] AS [View_StudentCourse]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_DeleteStudent" FunctionName="SchoolDBModel.Store.sp_DeleteStudent" />
-          <FunctionImportMapping FunctionImportName="sp_InsertStudentInfo" FunctionName="SchoolDBModel.Store.sp_InsertStudentInfo" />
-          <FunctionImportMapping FunctionImportName="sp_UpdateStudent" FunctionName="SchoolDBModel.Store.sp_UpdateStudent" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
